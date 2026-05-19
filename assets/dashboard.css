@@ -1,0 +1,162 @@
+/* Clinical Trial Intelligence Dashboard -- Dark Glassmorphism Theme */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    background: #0a0a1a;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    color: #e2e2f0;
+    margin: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0a0a1a; }
+::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124,58,237,0.8); }
+
+/* Tabs */
+.custom-tabs .tab {
+    background: rgba(18,18,42,0.6) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-bottom: none !important;
+    color: #6b7280 !important;
+    padding: 10px 20px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.2s ease !important;
+    border-radius: 8px 8px 0 0 !important;
+    margin-right: 4px !important;
+}
+.custom-tabs .tab:hover {
+    color: #e2e2f0 !important;
+    background: rgba(124,58,237,0.15) !important;
+}
+.custom-tabs .tab--selected {
+    background: rgba(124,58,237,0.25) !important;
+    border-color: rgba(124,58,237,0.5) !important;
+    color: #e2e2f0 !important;
+    border-bottom: 2px solid #7c3aed !important;
+}
+.custom-tabs .tabs--content {
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 0 8px 8px 8px !important;
+    background: transparent !important;
+    padding: 20px !important;
+}
+
+/* Cards */
+.trial-card {
+    background: rgba(18,18,42,0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+}
+.trial-card:hover {
+    border-color: rgba(124,58,237,0.4);
+    transform: translateY(-2px);
+}
+
+/* Dropdowns */
+.Select-control, .Select-menu-outer {
+    background-color: rgba(18,18,42,0.95) !important;
+    border-color: rgba(255,255,255,0.12) !important;
+    color: #e2e2f0 !important;
+    border-radius: 8px !important;
+}
+.Select-control:hover { border-color: rgba(124,58,237,0.5) !important; }
+.Select-value-label, .Select-placeholder { color: #e2e2f0 !important; }
+.Select-option {
+    background-color: rgba(18,18,42,0.98) !important;
+    color: #e2e2f0 !important;
+}
+.Select-option:hover, .Select-option.is-focused {
+    background-color: rgba(124,58,237,0.25) !important;
+}
+.Select-arrow { border-top-color: #6b7280 !important; }
+
+/* Dash 2.x dropdowns */
+.dash-dropdown .Select-control {
+    background: rgba(18,18,42,0.95) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 8px !important;
+}
+
+/* Graphs transparent background */
+.js-plotly-plot .plotly,
+.js-plotly-plot .plotly .plot-container {
+    background: transparent !important;
+}
+
+/* Table rows hover */
+tr:hover td { background: rgba(124,58,237,0.05) !important; }
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+/* KPI values */
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.kpi-label {
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 16px 0;
+}
+
+/* Buttons */
+.btn-refresh {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    transition: opacity 0.2s, transform 0.15s !important;
+    cursor: pointer !important;
+}
+.btn-refresh:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Search input dark styling */
+input[type="text"] {
+    background: rgba(18,18,42,0.95) !important;
+    color: #e2e2f0 !important;
+}
+input[type="text"]::placeholder { color: #6b7280 !important; }
+input[type="text"]:focus {
+    border-color: rgba(124,58,237,0.5) !important;
+    box-shadow: 0 0 0 2px rgba(124,58,237,0.15) !important;
+}
+
+/* Status text */
+.status-text {
+    font-size: 0.75rem;
+    color: #6b7280;
+    letter-spacing: 0.03em;
+}
