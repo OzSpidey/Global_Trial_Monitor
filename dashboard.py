@@ -1,4 +1,4 @@
-"""Clinical Trial Intelligence Dashboard -- 5-tab dark Plotly Dash app."""
+﻿"""Clinical Trial Intelligence Dashboard -- 5-tab dark Plotly Dash app."""
 import math
 import json
 from datetime import datetime
@@ -35,6 +35,8 @@ app = dash.Dash(
     suppress_callback_exceptions=True,
     title="Clinical Trial Intelligence",
 )
+server = app.server
+scheduler.start()
 
 
 def _card(*children, style=None):
@@ -992,6 +994,6 @@ def update_tracker(search, status, area, phase, page, n_intervals):
 
 # Entry point
 if __name__ == "__main__":
-    scheduler.start()
     print("Clinical Trial Intelligence Dashboard  ->  http://localhost:8051")
-    app.run(debug=False, port=8051, host="0.0.0.0")
+    app.run(debug=False, port=int(os.environ.get("PORT", 8051)), host="0.0.0.0")
+
