@@ -1,4 +1,6 @@
-# Clinical Trial Intelligence Dashboard
+﻿# Clinical Trial Intelligence Dashboard
+
+**Live Demo:** https://global-trial-monitor.onrender.com
 
 > Real-time intelligence across 1,500+ clinical trials, live data from ClinicalTrials.gov API v2, spanning 8 disease areas, with phase pipeline tracking, sponsor leaderboards, geographic distribution, and NLP-driven trending conditions.
 
@@ -28,19 +30,19 @@
 
 ## Features
 
-### 📊 Pipeline Overview
+### ðŸ“Š Pipeline Overview
 Four KPI tiles, Total Trials, Actively Recruiting, Avg Trial Duration, Countries Covered, plus a phase distribution bar chart (Early Phase 1 through Phase 4), status breakdown donut, and top-10 sponsor bar chart.
 
-### 🧬 Disease Intelligence
-Treemap breaking down disease areas into specific conditions by study count, top-15 trending conditions bar chart extracted by NLP keyword frequency from trial titles, and a disease area × phase stacked bar showing which phases dominate each therapeutic area.
+### ðŸ§¬ Disease Intelligence
+Treemap breaking down disease areas into specific conditions by study count, top-15 trending conditions bar chart extracted by NLP keyword frequency from trial titles, and a disease area Ã— phase stacked bar showing which phases dominate each therapeutic area.
 
-### 🏆 Sponsor Leaderboard
-Top 20 sponsors ranked by active trial count with dominant phase coloring, sponsor phase breakdown cross-chart (top 10 sponsors × phase), and KPIs for total sponsors, average trials per sponsor, and most active sponsor.
+### ðŸ† Sponsor Leaderboard
+Top 20 sponsors ranked by active trial count with dominant phase coloring, sponsor phase breakdown cross-chart (top 10 sponsors Ã— phase), and KPIs for total sponsors, average trials per sponsor, and most active sponsor.
 
-### 🌍 Geographic Distribution
-Plotly choropleth world map colored by trial density per country, top-15 countries horizontal bar, and a country × status stacked bar, revealing where trials are running and what stage they're in by region.
+### ðŸŒ Geographic Distribution
+Plotly choropleth world map colored by trial density per country, top-15 countries horizontal bar, and a country Ã— status stacked bar, revealing where trials are running and what stage they're in by region.
 
-### 🔍 Trial Tracker
+### ðŸ” Trial Tracker
 Fully searchable and filterable table, filter by keyword, status, disease area, and phase simultaneously. Each row shows NCT ID (linked to clinicaltrials.gov), title, phase badge, status badge with color coding, sponsor, countries, and start date. Paginated at 25 rows per page.
 
 ---
@@ -86,7 +88,7 @@ python dashboard.py
 # Open http://localhost:8051
 ```
 
-The first run fetches ~1,600 trials from ClinicalTrials.gov in the background (takes 1–2 minutes). The UI renders immediately with "Fetching data…" placeholders and populates as each disease area completes.
+The first run fetches ~1,600 trials from ClinicalTrials.gov in the background (takes 1â€“2 minutes). The UI renders immediately with "Fetching dataâ€¦" placeholders and populates as each disease area completes.
 
 ---
 
@@ -94,16 +96,16 @@ The first run fetches ~1,600 trials from ClinicalTrials.gov in the background (t
 
 ```
 clinical-trial-dashboard/
-├── dashboard.py        # Plotly Dash app, 5 tabs, 7 callbacks
-├── config.py           # Disease areas, status/phase colors, DB path
-├── fetcher.py          # ClinicalTrials.gov API v2, pagination + extraction
-├── store.py            # SQLite layer, upsert, queries, stats
-├── scheduler.py        # APScheduler hourly background refresh
-├── nlp.py              # Keyword extraction for trending conditions
-├── assets/
-│   └── dashboard.css   # Dark glassmorphism theme
-├── data/               # Auto-created; holds trials.db (gitignored)
-└── requirements.txt
+â”œâ”€â”€ dashboard.py        # Plotly Dash app, 5 tabs, 7 callbacks
+â”œâ”€â”€ config.py           # Disease areas, status/phase colors, DB path
+â”œâ”€â”€ fetcher.py          # ClinicalTrials.gov API v2, pagination + extraction
+â”œâ”€â”€ store.py            # SQLite layer, upsert, queries, stats
+â”œâ”€â”€ scheduler.py        # APScheduler hourly background refresh
+â”œâ”€â”€ nlp.py              # Keyword extraction for trending conditions
+â”œâ”€â”€ assets/
+â”‚   â””â”€â”€ dashboard.css   # Dark glassmorphism theme
+â”œâ”€â”€ data/               # Auto-created; holds trials.db (gitignored)
+â””â”€â”€ requirements.txt
 ```
 
 ---
@@ -112,20 +114,20 @@ clinical-trial-dashboard/
 
 ```
 Every hour (APScheduler)
-    │
-    ├─► fetcher.fetch_all_disease_areas()
-    │       └── 8 disease queries × up to 200 results each
-    │           pagination via nextPageToken loop
-    ├─► store.upsert_trials()
-    │       └── INSERT OR REPLACE into SQLite
-    └─► scheduler._last_run updated
+    â”‚
+    â”œâ”€â–º fetcher.fetch_all_disease_areas()
+    â”‚       â””â”€â”€ 8 disease queries Ã— up to 200 results each
+    â”‚           pagination via nextPageToken loop
+    â”œâ”€â–º store.upsert_trials()
+    â”‚       â””â”€â”€ INSERT OR REPLACE into SQLite
+    â””â”€â–º scheduler._last_run updated
 
 Dashboard callbacks (on interval tick or user interaction)
-    │
-    ├─► store.get_trials()       → all tabs (cached DataFrame)
-    ├─► store.get_stats()        → KPI tiles
-    ├─► nlp.get_trending_conditions()  → Disease Intelligence tab
-    └─► Plotly figures computed in-process from SQLite data
+    â”‚
+    â”œâ”€â–º store.get_trials()       â†’ all tabs (cached DataFrame)
+    â”œâ”€â–º store.get_stats()        â†’ KPI tiles
+    â”œâ”€â–º nlp.get_trending_conditions()  â†’ Disease Intelligence tab
+    â””â”€â–º Plotly figures computed in-process from SQLite data
 ```
 
 ---
@@ -167,4 +169,5 @@ apscheduler>=3.10.1
 
 ---
 
-*Built with Plotly Dash · ClinicalTrials.gov API · APScheduler*
+*Built with Plotly Dash Â· ClinicalTrials.gov API Â· APScheduler*
+
